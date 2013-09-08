@@ -2,7 +2,8 @@
 // For example:
 
 //注册
-AV.Cloud.define('register', function(request, response) {
+AV.Cloud.define('register', function(request, response)
+                {
                 
                 var username = request.params.username;
                 var password = request.params.password;
@@ -28,7 +29,7 @@ AV.Cloud.define('register', function(request, response) {
                             });
                 
                 }
-                });
+});
 
 //登录
 AV.Cloud.define('login', function(request, response) 
