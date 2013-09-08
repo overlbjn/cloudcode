@@ -31,7 +31,8 @@ AV.Cloud.define('register', function(request, response) {
                 });
 
 //登录
-AV.Cloud.define('login', function(request, response) {
+AV.Cloud.define('login', function(request, response) 
+{
                 
     var username = request.params.username;
     var password = request.params.password;
@@ -39,29 +40,36 @@ AV.Cloud.define('login', function(request, response) {
     var theLongitude = request.params.longitude;
     var place = request.params.place;
 
-    AV.User.logIn(username, password, {
-                  success: function(user) {
+    AV.User.logIn(username, password, 
+    {
+        success: function(user) 
+        {
                   
-                    if (latitude && longitude && place)
+            if (latitude && longitude && place)
+            {
+                var userGeoPoint = new AV.GeoPoint({latitude: theLatitude, longitude: theLongitude});
+                user.set("location",userGeoPoint);
+                user.save(null, {
+                    success: function(user) 
                     {
-                      var userGeoPoint = new AV.GeoPoint({latitude: theLatitude, longitude: theLongitude});
-                      user.set("location",userGeoPoint);
-                  user.save(null, {
-                            success: function(gameScore) {
-
-                            alert('New object created with objectId: ' + gameScore.id);
-                            },
-                            error: function(gameScore, error) {
-
-                            alert('Failed to create new object, with error code: ' + error.description);
-
+                        response.success(user,user.get(location));
+                    },
+                    error: function(user, error) 
+                    {
+                        response.success(user,user.get(location),error);
                     }
-                  
-                    response.success(user);
-                  },
-                  error: function(user, error) {
+            }
+            else
+            {
+                response.success(user,user.get(location));
+            }      
+        },
+        error: function(user, error) {
 
-                    response.error(user, error); 
-                  }
-                  });
+          response.error(user, error); 
+
+        }
     });
+});
+
+
