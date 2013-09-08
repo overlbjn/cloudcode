@@ -23,7 +23,7 @@ AV.Cloud.define('register', function(request, response) {
                             response.success(user);
                             },
                             error: function(user, error) {
-                            response.success(user, error);
+                            response.error(user, error);
                             }
                             });
                 
@@ -44,7 +44,7 @@ AV.Cloud.define('login', function(request, response) {
                               },
                               error: function(user, error) {
                               // The login failed. Check error to see why.
-                              response.success(user, error); 
+                              response.error(user, error); 
                               }
                               });
                 });
