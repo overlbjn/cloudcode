@@ -33,18 +33,35 @@ AV.Cloud.define('register', function(request, response) {
 //登录
 AV.Cloud.define('login', function(request, response) {
                 
-                var username = request.params.username;
-                var password = request.params.password;
-                
-                
-                AV.User.logIn(username, password, {
-                              success: function(user) {
-                              // Do stuff after successful login.
-                              response.success(user);
-                              },
-                              error: function(user, error) {
-                              // The login failed. Check error to see why.
-                              response.error(user, error); 
-                              }
-                              });
-                });
+    var username = request.params.username;
+    var password = request.params.password;
+    var theLatitude = request.params.latitude;
+    var theLongitude = request.params.longitude;
+    var place = request.params.place;
+
+    AV.User.logIn(username, password, {
+                  success: function(user) {
+                  
+                    if (latitude && longitude && place)
+                    {
+                      var userGeoPoint = new AV.GeoPoint({latitude: theLatitude, longitude: theLongitude});
+                      user.set("location",userGeoPoint);
+                  user.save(null, {
+                            success: function(gameScore) {
+
+                            alert('New object created with objectId: ' + gameScore.id);
+                            },
+                            error: function(gameScore, error) {
+
+                            alert('Failed to create new object, with error code: ' + error.description);
+
+                    }
+                  
+                    response.success(user);
+                  },
+                  error: function(user, error) {
+
+                    response.error(user, error); 
+                  }
+                  });
+    });
