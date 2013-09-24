@@ -124,7 +124,7 @@ AV.Cloud.define('testCloopen', function(request, response)
 
     var body ='<SubAccount><appId>aaf98f894032b2370140479684b0009f</appId><friendlyName>123456@qq.com</friendlyName><accountSid>aaf98f894032b237014047963bb9009d</accountSid></SubAccount>';
 
-    response.success(sig.toUpperCase());
+    // response.success(sig.toUpperCase());
 
     //+ authorization64 + sig + body
     //注册云通信
@@ -141,10 +141,12 @@ AV.Cloud.define('testCloopen', function(request, response)
             body: body
         },
         success: function(httpResponse) {
-            console.log(httpResponse.text);
+            // console.log(httpResponse.text);
+            response.success(httpResponse.text);
         },
         error: function(httpResponse) {
-            console.error('Request failed with response code ' + httpResponse.status);
+            // console.error('Request failed with response code ' + httpResponse.status);
+            respose..error('Request failed with response code ' + httpResponse.status);
         }
     });
 
