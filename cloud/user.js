@@ -86,12 +86,13 @@ AV.Cloud.define('login', function(request, response)
 //};
 
 function md5 (text) {
+
     return crypto.createHash('md5').update(text).digest('hex');
 };
 
 AV.Cloud.define('md5Test', function(request, response)
 {
-    response.success(md5('哈哈'));
+    response.success(md5('HEHE'));
 });
 
 AV.Cloud.define('testCloopen', function(request, response)
@@ -112,7 +113,7 @@ AV.Cloud.define('testCloopen', function(request, response)
 //<SubAccount><appId>aaf98f894032b2370140479684b0009f</appId><friendlyName>123456@qq.com</friendlyName><accountSid>aaf98f894032b237014047963bb9009d</accountSid></SubAccount>'
 
     response.success(sig.toUpperCase());
-    
+
     //注册云通信
 //    AV.Cloud.httpRequest({
 //        method: 'POST',
