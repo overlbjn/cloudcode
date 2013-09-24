@@ -130,37 +130,28 @@ AV.Cloud.define('testCloopen', function(request, response)
     //+ authorization64 + sig + body
     //注册云通信
     AV.Cloud.httpRequest({
-  url: 'http://www.google.com/search',
-  params: 'q=Sean Plott',
-  success: function(httpResponse) {
-    // console.log(httpResponse.text);
-    response.success(httpResponse.text);
-  },
-  error: function(httpResponse) {
-    // console.error('Request failed with response code ' + httpResponse.status);
-    respose.error('Request failed with response code ' + httpResponse.status);
-  }
-});
-
-    // AV.Cloud.httpRequest({
-    //     method: 'POST',
-    //     url: 'https://app.cloopen.com:8883/2013-03-22/Accounts/aaf98f894032b237014047963bb9009d/SubAccounts?sig='+sig.toUpperCase(),
-    //     headers: {
-    //         'Content-Type': 'application/xml',
-    //         'Accept': 'application/xml',
-    //         'charset': 'utf-8',
-    //         'Authorization': authorization64
-    //     },
-    //     body: bodyxml,
-    //     success: function(httpResponse) {
-    //         // console.log(httpResponse.text);
-    //         response.success(httpResponse.text);
-    //     },
-    //     error: function(httpResponse) {
-    //         // console.error('Request failed with response code ' + httpResponse.status);
-    //         respose.error('Request failed with response code ' + httpResponse.status);
-    //     }
-    // });
+        method: 'POST',
+        url:'www.google.com'.
+        // url: 'https://app.cloopen.com:8883/2013-03-22/Accounts/aaf98f894032b237014047963bb9009d/SubAccounts?sig='+sig.toUpperCase(),
+        headers: {
+            // 'Content-Type': 'application/xml',
+            // 'Accept': 'application/xml',
+            // 'charset': 'utf-8',
+            // 'Authorization': authorization64
+        },
+        // body: bodyxml,
+        body:{
+            params:'q=Sean Plott'
+        }
+        success: function(httpResponse) {
+            // console.log(httpResponse.text);
+            response.success(httpResponse.text);
+        },
+        error: function(httpResponse) {
+            // console.error('Request failed with response code ' + httpResponse.status);
+            respose.error('Request failed with response code ' + httpResponse.status);
+        }
+    });
 
 });
 
