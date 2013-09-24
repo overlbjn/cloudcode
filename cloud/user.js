@@ -2,7 +2,7 @@
 // For example:
 
 var crypto = require('crypto');
-
+var moment = require('moment+langs.js');
 //注册
 AV.Cloud.define('register', function(request, response)
                 {
@@ -102,7 +102,7 @@ AV.Cloud.define('testCloopen', function(request, response)
 
 //    timeStr = d._format('yyyyMMddHHmmss');
 
-    response.success(timeStr);
+    response.success(moment().format('yyyyMMddHHmmss'));
 
     var authorizationStr = 'aaf98f894032b237014047963bb9009d'+':'+timeStr;
 
