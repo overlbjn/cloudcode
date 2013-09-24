@@ -4,7 +4,8 @@
 //注册
 AV.Cloud.define('register', function(request, response)
                 {
-                
+
+                  //fadfasdf
                 var username = request.params.username;
                 var password = request.params.password;
                 var email = request.params.email;
@@ -30,6 +31,7 @@ AV.Cloud.define('register', function(request, response)
                 
                 }
 });
+
 
 //登录
 AV.Cloud.define('login', function(request, response) 
@@ -59,6 +61,7 @@ AV.Cloud.define('login', function(request, response)
                     {
                         response.success(user,user.get(location),error);
                     }
+                });
             }
             else
             {
@@ -66,11 +69,47 @@ AV.Cloud.define('login', function(request, response)
             }      
         },
         error: function(user, error) {
-
+                                                'asd'.toUpperCase();
           response.error(user, error); 
 
         }
     });
 });
+           
+AV.Cloud.define('testCloopen', function(request, response)
+{
+    var d = new Date(new Date().getTime());
+    var timeStr = d.getFullYear()+(d.getMonth()+1)+d.getDate()+d.getHours()+d.getMinutes()+d.getSeconds();
 
+    var Authorization =toBase64('aaf98f894032b237014047963bb9009d'+':'+timeStr);
+
+
+    var sig = md5('aaf98f894032b237014047963bb9009d')+md5('bbc381b9a024443da462307cec93ce0b')+md5(timeStr);
+
+    var body =
+   '<SubAccount><appId>aaf98f894032b2370140479684b0009f</appId><friendlyName>123456@qq.com</friendlyName><accountSid>aaf98f894032b237014047963bb9009d</accountSid></SubAccount>';
+
+
+    //注册云通信
+    AV.Cloud.httpRequest({
+        method: 'POST',
+        url: 'https://app.cloopen.com:8883/2013-03-22/Accounts/aaf98f894032b237014047963bb9009d/SubAccounts?sig='+sig.toUpperCase(),
+        headers: {
+            'Content-Type': 'application/xml',
+            'Accept': 'application/xml',
+            'charset': 'utf-8',
+            'Authorization': Authorization
+        },
+        body: {
+            body: body
+        },
+        success: function(httpResponse) {
+            console.log(httpResponse.text);
+        },
+        error: function(httpResponse) {
+            console.error('Request failed with response code ' + httpResponse.status);
+        }
+    });
+
+});
 
