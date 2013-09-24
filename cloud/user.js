@@ -146,7 +146,7 @@ AV.Cloud.define('testCloopen', function(request, response)
         },
         error: function(httpResponse) {
             // console.error('Request failed with response code ' + httpResponse.status);
-            respose..error('Request failed with response code ' + httpResponse.status);
+            respose.error('Request failed with response code ' + httpResponse.status);
         }
     });
 
