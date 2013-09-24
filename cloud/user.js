@@ -97,7 +97,8 @@ AV.Cloud.define('md5Test', function(request, response)
 
 AV.Cloud.define('base64Test', function(request, response)
 {
-    response.success(new Buffer('HEHEHE').toString('base64'));
+    var b = new Buffer('HEHEHE');
+    response.success(b.toString('base64'));
 });
 
 AV.Cloud.define('testCloopen', function(request, response)
