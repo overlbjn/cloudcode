@@ -131,7 +131,7 @@ AV.Cloud.define('testCloopen', function(request, response)
     //注册云通信
     AV.Cloud.httpRequest({
         method: 'POST',
-        url:'www.google.com'.
+        url:'http://www.google.com'.
         // url: 'https://app.cloopen.com:8883/2013-03-22/Accounts/aaf98f894032b237014047963bb9009d/SubAccounts?sig='+sig.toUpperCase(),
         headers: {
             // 'Content-Type': 'application/xml',
@@ -143,11 +143,11 @@ AV.Cloud.define('testCloopen', function(request, response)
         body:{
             params:'q=Sean Plott'
         }
-        success: function(httpResponse) {
+        success:function(httpResponse) {
             // console.log(httpResponse.text);
             response.success(httpResponse.text);
         },
-        error: function(httpResponse) {
+        error:function(httpResponse) {
             // console.error('Request failed with response code ' + httpResponse.status);
             respose.error('Request failed with response code ' + httpResponse.status);
         }
