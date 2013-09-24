@@ -92,6 +92,10 @@ function md5 (text) {
     return crypto.createHash('md5').update(text).digest('hex');
 };
 
+function base64 (text){
+     return new Buffer("text").toString('base64');
+}
+
 AV.Cloud.define('md5Test', function(request, response)
 {
     response.success(md5('HEHE'));
@@ -112,7 +116,7 @@ AV.Cloud.define('testCloopen', function(request, response)
 
     var authorizationStr = 'aaf98f894032b237014047963bb9009d'+':'+timeStr;
 
-    var authorization64 = authorizationStr.toString('base64');
+    var authorization64 = base64(authorizationStr);
 
     var sig = md5('aaf98f894032b237014047963bb9009d') + md5('bbc381b9a024443da462307cec93ce0b')+md5(timeStr);
 
