@@ -97,7 +97,7 @@ AV.Cloud.define('md5Test', function(request, response)
 
 AV.Cloud.define('testCloopen', function(request, response)
 {
-    var d = new Date(new Date().getTime());
+    var d = new Date();
     var timeStr = d.getFullYear()+(d.getMonth()+1)+d.getDate()+d.getHours()+d.getMinutes()+d.getSeconds();
 
     response.success(timeStr);
@@ -114,7 +114,7 @@ AV.Cloud.define('testCloopen', function(request, response)
     var body ='123';
 //<SubAccount><appId>aaf98f894032b2370140479684b0009f</appId><friendlyName>123456@qq.com</friendlyName><accountSid>aaf98f894032b237014047963bb9009d</accountSid></SubAccount>'
 
-    
+
                                    //+ authorization64 + sig + body
     //注册云通信
 //    AV.Cloud.httpRequest({
