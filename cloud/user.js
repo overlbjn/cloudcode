@@ -121,8 +121,9 @@ AV.Cloud.define('testCloopen', function(request, response)
     var sigstr = 'aaf98f894032b237014047963bb9009d'+'bbc381b9a024443da462307cec93ce0b'+timeStr;
 
     var sig = md5(sigstr);
-
-    var body ='<SubAccount><appId>aaf98f894032b2370140479684b0009f</appId><friendlyName>123456@qq.com</friendlyName><accountSid>aaf98f894032b237014047963bb9009d</accountSid></SubAccount>';
+    
+    response.success('ai');
+    // var body ='<SubAccount><appId>aaf98f894032b2370140479684b0009f</appId><friendlyName>123456@qq.com</friendlyName><accountSid>aaf98f894032b237014047963bb9009d</accountSid></SubAccount>';
 
     // response.success(sig.toUpperCase());
 
