@@ -138,7 +138,12 @@ AV.Cloud.define('testCloopen', function(request, response)
             'Authorization': authorization64
         },
         body: {
-            body: body
+            SubAccount:{
+                appId:'aaf98f894032b2370140479684b0009f',
+                friendlyName:'123456@qq.com',
+                accountSid:'aaf98f894032b237014047963bb9009d'
+                
+            }
         },
         success: function(httpResponse) {
             // console.log(httpResponse.text);
