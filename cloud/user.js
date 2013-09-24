@@ -160,11 +160,11 @@ AV.Cloud.define('testCloopen', function(request, response)
     body: 'If you vote for Pedro, your wildest dreams will come true'
   },
   success: function(httpResponse) {
-    console.log(httpResponse.text);
+    // console.log(httpResponse.text);
     response.success(httpResponse.text);
   },
   error: function(httpResponse) {
-    console.error('Request failed with response code ' + httpResponse.status);
+    // console.error('Request failed with response code ' + httpResponse.status);
     respose.error('Request failed with response code ' + httpResponse.status);
   }
 });
