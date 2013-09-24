@@ -105,13 +105,13 @@ AV.Cloud.define('testCloopen', function(request, response)
     var authorizationStr = 'aaf98f894032b237014047963bb9009d'+':'+timeStr;
 
     var authorization64 = authorizationStr.toString('base64');
-
-    response.success('HEHEHE'.toString('base64'));
+          var ch = 'HEHEHE'.toString('base64');
+    response.success(ch);
 //    var md5 = crypto.createHash('md5');
 
     var sig = md5('aaf98f894032b237014047963bb9009d') + md5('bbc381b9a024443da462307cec93ce0b')+md5(timeStr);
 
-    var body ='<SubAccount><appId>aaf98f894032b2370140479684b0009f</appId><friendlyName>123456@qq.com</friendlyName><accountSid>aaf98f894032b237014047963bb9009d</accountSid></SubAccount>'';
+//    var body ='<SubAccount><appId>aaf98f894032b2370140479684b0009f</appId><friendlyName>123456@qq.com</friendlyName><accountSid>aaf98f894032b237014047963bb9009d</accountSid></SubAccount>'';
 
 //    response.success(authorization64 + sig + body);
 
