@@ -1,6 +1,11 @@
 // Use AV.Cloud.define to define as many cloud functions as you want.
 // For example:
 
+//hello user
+AV.Cloud.define("helloTest", function(request, response) {
+  response.success("hello !" + request.params.name);
+});
+
 //注册
 AV.Cloud.define('register', function(request, response)
                 {
