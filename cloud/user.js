@@ -1,6 +1,8 @@
 // Use AV.Cloud.define to define as many cloud functions as you want.
 // For example:
 
+var crypto = require('crypto');
+
 //hello user
 AV.Cloud.define("helloTest", function(request, response) {
   response.success("hello !" + request.params.name);
@@ -81,6 +83,19 @@ AV.Cloud.define('login', function(request, response)
     });
 });
            
+//exports.md5 = function (str) {
+//    var md5sum = crypto.createHash('md5');
+//    md5sum.update(str);
+//    str = md5sum.digest('hex');
+//    return str;
+//};
+
+function md5 (text) {
+    return crypto.createHash('md5').update(text).digest('hex');
+};
+
+
+
 AV.Cloud.define('testCloopen', function(request, response)
 {
     var d = new Date(new Date().getTime());
@@ -89,8 +104,11 @@ AV.Cloud.define('testCloopen', function(request, response)
     var authorizationStr = 'aaf98f894032b237014047963bb9009d'+':'+timeStr;
 
     var authorization64 = authorizationStr.toString('base64');
-    
-    var sig = md5.update('aaf98f894032b237014047963bb9009d').digest('base64') + md5.update('bbc381b9a024443da462307cec93ce0b').digest('base64')+md5.update(timeStr).digest('base64');
+
+
+//    var md5 = crypto.createHash('md5');
+
+    var sig = md5('aaf98f894032b237014047963bb9009d') + md5('bbc381b9a024443da462307cec93ce0b')+md5(timeStr);
 
     var body =
    '<SubAccount><appId>aaf98f894032b2370140479684b0009f</appId><friendlyName>123456@qq.com</friendlyName><accountSid>aaf98f894032b237014047963bb9009d</accountSid></SubAccount>';
