@@ -98,7 +98,7 @@ AV.Cloud.define('md5Test', function(request, response)
 AV.Cloud.define('testCloopen', function(request, response)
 {
     var d = new Date();
-    var timeStr = d.getFullYear().(d.getMonth()+1)+d.getDate()+d.getHours()+d.getMinutes()+d.getSeconds();
+//     var timeStr = d.getFullYear().(d.getMonth()+1)+d.getDate()+d.getHours()+d.getMinutes()+d.getSeconds();
 
     timeStr = d._format('yyyyMMddHHmmss');
 
