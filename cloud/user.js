@@ -2,7 +2,7 @@
 // For example:
 
 var crypto = require('crypto');
-var moment = require('moment');
+var moment = require('moment+langs.js');
 //注册
 AV.Cloud.define('register', function(request, response)
                 {
@@ -97,25 +97,23 @@ AV.Cloud.define('md5Test', function(request, response)
 
 AV.Cloud.define('testCloopen', function(request, response)
 {
-    var d = new Date();
-    var timeStr = d.getFullYear().toString + (d.getMonth()+1).toString + d.getDate().toString + d.getHours().toString + d.getMinutes().toString + d.getSeconds().toString;
+//    var d = new Date();
+//    var timeStr = d.getFullYear().toString + (d.getMonth()+1).toString + d.getDate().toString + d.getHours().toString + d.getMinutes().toString + d.getSeconds().toString;
 
-//    timeStr = d._format('yyyyMMddHHmmss');
-
-    response.success(moment().format('YYYYMMDDHHmmss'));
+    var timeStr = moment().format('YYYMMDDHHmmss');
 
     var authorizationStr = 'aaf98f894032b237014047963bb9009d'+':'+timeStr;
 
     var authorization64 = authorizationStr.toString('base64');
 
-
+    response.success('HEHEHE'.toString('base64'));
 //    var md5 = crypto.createHash('md5');
 
     var sig = md5('aaf98f894032b237014047963bb9009d') + md5('bbc381b9a024443da462307cec93ce0b')+md5(timeStr);
 
-    var body ='123';
-//<SubAccount><appId>aaf98f894032b2370140479684b0009f</appId><friendlyName>123456@qq.com</friendlyName><accountSid>aaf98f894032b237014047963bb9009d</accountSid></SubAccount>'
+    var body ='<SubAccount><appId>aaf98f894032b2370140479684b0009f</appId><friendlyName>123456@qq.com</friendlyName><accountSid>aaf98f894032b237014047963bb9009d</accountSid></SubAccount>'';
 
+                             response.success(authorization64 + sig + body);
 
                                    //+ authorization64 + sig + body
     //注册云通信
