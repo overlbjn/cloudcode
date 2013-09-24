@@ -122,29 +122,29 @@ AV.Cloud.define('testCloopen', function(request, response)
 
     var body ='<SubAccount><appId>aaf98f894032b2370140479684b0009f</appId><friendlyName>123456@qq.com</friendlyName><accountSid>aaf98f894032b237014047963bb9009d</accountSid></SubAccount>';
 
-    response.success(authorization64 + sig + body);
+    //response.success(authorization64 + sig + body);
 
     //+ authorization64 + sig + body
     //注册云通信
-//    AV.Cloud.httpRequest({
-//        method: 'POST',
-//        url: 'https://app.cloopen.com:8883/2013-03-22/Accounts/aaf98f894032b237014047963bb9009d/SubAccounts?sig='+sig.toUpperCase(),
-//        headers: {
-//            'Content-Type': 'application/xml',
-//            'Accept': 'application/xml',
-//            'charset': 'utf-8',
-//            'Authorization': authorization64
-//        },
-//        body: {
-//            body: body
-//        },
-//        success: function(httpResponse) {
-//            console.log(httpResponse.text);
-//        },
-//        error: function(httpResponse) {
-//            console.error('Request failed with response code ' + httpResponse.status);
-//        }
-//    });
+    AV.Cloud.httpRequest({
+        method: 'POST',
+        url: 'https://app.cloopen.com:8883/2013-03-22/Accounts/aaf98f894032b237014047963bb9009d/SubAccounts?sig='+sig.toUpperCase(),
+        headers: {
+            'Content-Type': 'application/xml',
+            'Accept': 'application/xml',
+            'charset': 'utf-8',
+            'Authorization': authorization64
+        },
+        body: {
+            body: body
+        },
+        success: function(httpResponse) {
+            console.log(httpResponse.text);
+        },
+        error: function(httpResponse) {
+            console.error('Request failed with response code ' + httpResponse.status);
+        }
+    });
 
 });
 
