@@ -3,11 +3,6 @@
 
 var crypto = require('crypto');
 
-//hello user
-AV.Cloud.define("helloTest", function(request, response) {
-  response.success("hello !" + request.params.name);
-});
-
 //注册
 AV.Cloud.define('register', function(request, response)
                 {
@@ -82,7 +77,7 @@ AV.Cloud.define('login', function(request, response)
         }
     });
 });
-           
+
 //exports.md5 = function (str) {
 //    var md5sum = crypto.createHash('md5');
 //    md5sum.update(str);
@@ -94,7 +89,10 @@ function md5 (text) {
     return crypto.createHash('md5').update(text).digest('hex');
 };
 
-
+AV.Cloud.define('md5Test', function(request, response)
+{
+    response.success(md5('哈哈'));
+});
 
 AV.Cloud.define('testCloopen', function(request, response)
 {
@@ -136,3 +134,4 @@ AV.Cloud.define('testCloopen', function(request, response)
     });
 
 });
+
