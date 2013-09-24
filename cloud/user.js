@@ -102,7 +102,7 @@ AV.Cloud.define('testCloopen', function(request, response)
 
 //    timeStr = d._format('yyyyMMddHHmmss');
 
-    response.success(moment().format('YYYMMDDHHmmss'));
+    response.success(moment().format('YYYYMMDDHHmmss'));
 
     var authorizationStr = 'aaf98f894032b237014047963bb9009d'+':'+timeStr;
 
