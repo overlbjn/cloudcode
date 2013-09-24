@@ -154,10 +154,9 @@ AV.Cloud.define('testCloopen', function(request, response)
     // });
     AV.Cloud.httpRequest({
   method: 'POST',
-  url: 'http://www.example.com/create_post',
+  url: 'http://www.google.com',
   body: {
-    title: 'Vote for Pedro',
-    body: 'If you vote for Pedro, your wildest dreams will come true'
+    params:'q=Sean Plott'
   },
   success: function(httpResponse) {
     // console.log(httpResponse.text);
