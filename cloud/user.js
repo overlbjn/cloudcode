@@ -133,10 +133,12 @@ AV.Cloud.define('testCloopen', function(request, response)
   url: 'http://www.google.com/search',
   params: 'q=Sean Plott',
   success: function(httpResponse) {
-    console.log(httpResponse.text);
+    // console.log(httpResponse.text);
+    response.success(httpResponse.text);
   },
   error: function(httpResponse) {
-    console.error('Request failed with response code ' + httpResponse.status);
+    // console.error('Request failed with response code ' + httpResponse.status);
+    respose.error('Request failed with response code ' + httpResponse.status);
   }
 });
 
