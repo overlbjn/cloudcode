@@ -3,7 +3,8 @@
 
 var crypto = require('crypto');
 var moment = require('moment');
- require('buffer');
+var buffer =  require('buffer');
+
 //注册
 AV.Cloud.define('register', function(request, response)
                 {
@@ -99,7 +100,7 @@ AV.Cloud.define('md5Test', function(request, response)
 AV.Cloud.define('base64Test', function(request, response)
 {
     //var b = new buffer('HEHEHE');
-    var buffer1 = new buffer("HEHEHE", "utf-8")
+    var buffer1 = new buffer("HEHEHE", "utf-8");
     response.success(buffer1.toString('base64'));
 });
 
