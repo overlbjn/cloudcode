@@ -3,7 +3,7 @@
 
 var crypto = require('crypto');
 var moment = require('moment');
-var buffer = require('buffer');
+ require('buffer');
 //注册
 AV.Cloud.define('register', function(request, response)
                 {
