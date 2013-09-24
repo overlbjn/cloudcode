@@ -7,77 +7,77 @@ var Buffer = require('buffer').Buffer;
 
 //注册
 AV.Cloud.define('register', function(request, response)
-                {
+{
 
-                  //fadfasdf
-                var username = request.params.username;
-                var password = request.params.password;
-                var email = request.params.email;
-                
-                if (username && password && email){
-                
-                
-                var user = new AV.User();
-                user.set("username", username);
-                user.set("password", password);
-                user.set("email", email);
-                
-                
-                
-                user.signUp(null, {
-                            success: function(user) {
-                            response.success(user);
-                            },
-                            error: function(user, error) {
-                            response.error(user, error);
-                            }
-                            });
-                
-                }
+    //fadfasdf
+    var username = request.params.username;
+    var password = request.params.password;
+    var email = request.params.email;
+
+    if (username && password && email){
+
+
+        var user = new AV.User();
+        user.set("username", username);
+        user.set("password", password);
+        user.set("email", email);
+
+
+
+        user.signUp(null, {
+            success: function(user) {
+                response.success(user);
+            },
+            error: function(user, error) {
+                response.error(user, error);
+            }
+        });
+
+    }
 });
 
 
 //登录
-AV.Cloud.define('login', function(request, response) 
+AV.Cloud.define('login', function(request, response)
 {
-                
+
     var username = request.params.username;
     var password = request.params.password;
     var theLatitude = request.params.latitude;
     var theLongitude = request.params.longitude;
     var place = request.params.place;
 
-    AV.User.logIn(username, password, 
-    {
-        success: function(user) 
+    AV.User.logIn(username, password,
         {
-                  
-            if (latitude && longitude && place)
+            success: function(user)
             {
-                var userGeoPoint = new AV.GeoPoint({latitude: theLatitude, longitude: theLongitude});
-                user.set("location",userGeoPoint);
-                user.save(null, {
-                    success: function(user) 
-                    {
-                        response.success(user,user.get(location));
-                    },
-                    error: function(user, error) 
-                    {
-                        response.success(user,user.get(location),error);
-                    }
-                });
-            }
-            else
-            {
-                response.success(user,user.get(location));
-            }      
-        },
-        error: function(user, error) {
-                                                'asd'.toUpperCase();
-          response.error(user, error); 
 
-        }
-    });
+                if (latitude && longitude && place)
+                {
+                    var userGeoPoint = new AV.GeoPoint({latitude: theLatitude, longitude: theLongitude});
+                    user.set("location",userGeoPoint);
+                    user.save(null, {
+                        success: function(user)
+                        {
+                            response.success(user,user.get(location));
+                        },
+                        error: function(user, error)
+                        {
+                            response.success(user,user.get(location),error);
+                        }
+                    });
+                }
+                else
+                {
+                    response.success(user,user.get(location));
+                }
+            },
+            error: function(user, error) {
+                'asd'.toUpperCase();
+                response.error(user, error);
+
+            }
+        });
 });
 
 //exports.md5 = function (str) {
@@ -93,7 +93,7 @@ function md5 (text) {
 };
 
 function base64 (text){
-     return new Buffer("text").toString('base64');
+    return new Buffer("text").toString('base64');
 }
 
 AV.Cloud.define('md5Test', function(request, response)
@@ -122,9 +122,9 @@ AV.Cloud.define('testCloopen', function(request, response)
 
     var body ='<SubAccount><appId>aaf98f894032b2370140479684b0009f</appId><friendlyName>123456@qq.com</friendlyName><accountSid>aaf98f894032b237014047963bb9009d</accountSid></SubAccount>'';
 
-    response.success(authorization64 + ' ' + sig + " " + body);
+    response.success(authorization64 + sig + body);
 
-                                   //+ authorization64 + sig + body
+    //+ authorization64 + sig + body
     //注册云通信
 //    AV.Cloud.httpRequest({
 //        method: 'POST',
