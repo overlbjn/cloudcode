@@ -2,7 +2,7 @@
 // For example:
 
 var crypto = require('crypto');
-var moment = require('moment.js');
+var moment = require('moment');
 //注册
 AV.Cloud.define('register', function(request, response)
                 {
