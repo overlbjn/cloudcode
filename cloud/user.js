@@ -139,9 +139,7 @@ AV.Cloud.define('testCloopen', function(request, response)
             'charset': 'utf-8',
             'Authorization': authorization64
         },
-        body: {
-            bodyxml
-        },
+        body: bodyxml,
         success: function(httpResponse) {
             // console.log(httpResponse.text);
             response.success(httpResponse.text);
