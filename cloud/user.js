@@ -86,10 +86,11 @@ AV.Cloud.define('testCloopen', function(request, response)
     var d = new Date(new Date().getTime());
     var timeStr = d.getFullYear()+(d.getMonth()+1)+d.getDate()+d.getHours()+d.getMinutes()+d.getSeconds();
 
-    var Authorization =toBase64('aaf98f894032b237014047963bb9009d'+':'+timeStr);
+    var authorizationStr = 'aaf98f894032b237014047963bb9009d'+':'+timeStr;
 
-
-    var sig = md5('aaf98f894032b237014047963bb9009d')+md5('bbc381b9a024443da462307cec93ce0b')+md5(timeStr);
+    var authorization64 = authorizationStr.toString('base64');
+    
+    var sig = md5.update('aaf98f894032b237014047963bb9009d').digest('base64') + md5.update('bbc381b9a024443da462307cec93ce0b').digest('base64')+md5.update(timeStr).digest('base64');
 
     var body =
    '<SubAccount><appId>aaf98f894032b2370140479684b0009f</appId><friendlyName>123456@qq.com</friendlyName><accountSid>aaf98f894032b237014047963bb9009d</accountSid></SubAccount>';
@@ -103,7 +104,7 @@ AV.Cloud.define('testCloopen', function(request, response)
             'Content-Type': 'application/xml',
             'Accept': 'application/xml',
             'charset': 'utf-8',
-            'Authorization': Authorization
+            'Authorization': authorization64
         },
         body: {
             body: body
@@ -117,4 +118,3 @@ AV.Cloud.define('testCloopen', function(request, response)
     });
 
 });
-
