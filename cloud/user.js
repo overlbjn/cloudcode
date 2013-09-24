@@ -100,6 +100,8 @@ AV.Cloud.define('testCloopen', function(request, response)
     var d = new Date(new Date().getTime());
     var timeStr = d.getFullYear()+(d.getMonth()+1)+d.getDate()+d.getHours()+d.getMinutes()+d.getSeconds();
 
+    
+
     var authorizationStr = 'aaf98f894032b237014047963bb9009d'+':'+timeStr;
 
     var authorization64 = authorizationStr.toString('base64');
@@ -112,7 +114,7 @@ AV.Cloud.define('testCloopen', function(request, response)
     var body ='123';
 //<SubAccount><appId>aaf98f894032b2370140479684b0009f</appId><friendlyName>123456@qq.com</friendlyName><accountSid>aaf98f894032b237014047963bb9009d</accountSid></SubAccount>'
 
-    response.success(sig.toUpperCase());
+    response.success(timeStr + authorization64 + sig + body);
 
     //注册云通信
 //    AV.Cloud.httpRequest({
