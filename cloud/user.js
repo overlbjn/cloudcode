@@ -16,7 +16,7 @@ function base64 (text){
     return new Buffer("text").toString('base64');
 }
 
-AV.Cloud.define('testCloopen', function(request, response)
+AV.Cloud.define('testCloopen', function(request, response)response
 {
     var timeStr = moment().format('YYYMMDDHHmmss');
 
@@ -46,7 +46,7 @@ AV.Cloud.define('testCloopen', function(request, response)
             response.success(httpResponse.text);
         },
         error:function(httpResponse) {
-            respose.error('Request failed with response code ' + httpResponse.status);
+            response.error('Request failed with response code ' + httpResponse.status);
         }
     });
     
