@@ -38,7 +38,7 @@ AV.Cloud.define('testCloopen', function(request, response)
         headers: {
             'Content-Type': 'application/xml',
             'Accept': 'application/xml',
-            'charset': 'utf-8',
+            'charset'='utf-8',
             'Authorization': authorization64
         },
         body: bodyxml,
