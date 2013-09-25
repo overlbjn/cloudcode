@@ -37,8 +37,7 @@ AV.Cloud.define('testCloopen', function(request, response)
         url: 'https://app.cloopen.com:8883/2013-03-22/Accounts/aaf98f894032b237014047963bb9009d/SubAccounts?sig='+sig.toUpperCase(),
         headers: {
             'Content-Type': 'application/xml',
-            'Accept': 'application/xml',
-            'charset'='utf-8',
+            'Accept': 'application/xml;charset=utf-8',
             'Authorization': authorization64
         },
         body: bodyxml,
