@@ -16,7 +16,7 @@ function base64 (text){
     return new Buffer("text").toString('base64');
 }
 
-AV.Cloud.define('testCloopen', function(request, response)response
+AV.Cloud.define('testCloopen', function(request, response)
 {
     var timeStr = moment().format('YYYMMDDHHmmss');
 
