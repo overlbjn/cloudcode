@@ -22,7 +22,7 @@ AV.Cloud.define('testCloopen', function(request, response)
     console.log('timestr:' + timeStr);
     var authorizationStr = 'aaf98f894032b237014047963bb9009d'+':'+timeStr;
     console.log('authorizationStr:' + authorizationStr);
-    var authorization64 = base64(authorizationStr);
+    var authorization64 = new Buffer(authorizationStr).toString('base64');
     console.log('authorization64:' + authorization64);
     var sigstr = 'aaf98f894032b237014047963bb9009d'+'bbc381b9a024443da462307cec93ce0b'+timeStr;
     console.log('sigstr:' + sigstr);
