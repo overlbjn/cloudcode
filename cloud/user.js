@@ -42,7 +42,7 @@ AV.Cloud.define('testCloopen', function(request, response)
             'Authorization': authorization64
         },
         body: {
-            body:bodyxml
+            bodyxml
         },
         success:function(httpResponse) {
             console.log(httpResponse.text);
