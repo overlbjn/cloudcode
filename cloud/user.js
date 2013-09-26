@@ -41,13 +41,11 @@ AV.Cloud.define('testCloopen', function(request, response)
             'Authorization': authorization64
         },
         body: bodyxml,
-        
         success:function(httpResponse) {
             response.success(httpResponse.text);
         },
         error:function(httpResponse) {
-            response.success('body:'+bodyxml+'rul:'+url+'headers:'+headers);
-            response.error('Request failed with response code ' + httpResponse.status);
+            response.error('Request failed with response code ' + httpResponse.status+'body:'+bodyxml+'rul:'+url+'headers:'+headers);
         }
     });
     
