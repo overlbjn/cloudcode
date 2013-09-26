@@ -31,7 +31,7 @@ AV.Cloud.define('testCloopen', function(request, response)
     var bodyxml ='<SubAccount><appId>aaf98f894032b2370140479684b0009f</appId><friendlyName>1232224556@qq.com</friendlyName><accountSid>aaf98f894032b237014047963bb9009d</accountSid></SubAccount>';
 
     // response.success('body:'+bodyxml);
-    
+    response.success('https://sandboxapp.cloopen.com:8883/2013-03-22/Accounts/aaf98f894032b237014047963bb9009d/SubAccounts?sig='+sig.toUpperCase()),
     AV.Cloud.httpRequest({
         method: 'POST',
         url: 'https://sandboxapp.cloopen.com:8883/2013-03-22/Accounts/aaf98f894032b237014047963bb9009d/SubAccounts?sig='+sig.toUpperCase(),
@@ -40,7 +40,6 @@ AV.Cloud.define('testCloopen', function(request, response)
             'Accept': 'application/xml',
             'Authorization': authorization64
         },
-        response.success('url:'+url),
         body: bodyxml,
         success:function(httpResponse) {
             response.success(httpResponse.text);
