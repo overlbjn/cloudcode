@@ -28,9 +28,9 @@ AV.Cloud.define('testCloopen', function(request, response)
 
     var sig = md5(sigstr);
     
-    //var bodyxml ='<SubAccount><appId>aaf98f894032b2370140479684b0009f</appId><friendlyName>1232224556@qq.com</friendlyName><accountSid>aaf98f894032b237014047963bb9009d</accountSid></SubAccount>';
+    var bodyxml ='<SubAccount><appId>aaf98f894032b2370140479684b0009f</appId><friendlyName>1232224556@qq.com</friendlyName><accountSid>aaf98f894032b237014047963bb9009d</accountSid></SubAccount>';
 
-    response.success('body:'+bodyxml);
+    // response.success('body:'+bodyxml);
     
     AV.Cloud.httpRequest({
         method: 'POST',
