@@ -12,9 +12,6 @@ function md5 (text) {
     return crypto.createHash('md5').update(text).digest('hex');
 };
 
-function base64 (text){
-    return new Buffer(text).toString('base64');
-}
 
 AV.Cloud.define('testCloopen', function(request, response)
 {
