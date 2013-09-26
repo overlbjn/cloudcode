@@ -18,7 +18,7 @@ function base64 (text){
 
 AV.Cloud.define('testCloopen', function(request, response)
 {
-    var timeStr = moment().format('YYYMMDDHHmmss');
+    var timeStr = moment().format('YYYYMMDDHHmmss');
     console.log('timestr:' + timeStr);
     var authorizationStr = 'aaf98f894032b237014047963bb9009d'+':'+timeStr;
     console.log('authorizationStr:' + authorizationStr);
