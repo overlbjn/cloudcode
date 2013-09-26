@@ -34,7 +34,7 @@ AV.Cloud.define('testCloopen', function(request, response)
     
     AV.Cloud.httpRequest({
         method: 'POST',
-        url: 'https://app.cloopen.com:8883/2013-03-22/Accounts/aaf98f894032b237014047963bb9009d/SubAccounts?sig='+sig.toUpperCase(),
+        url: 'https://sandboxapp.cloopen.com:8883/2013-03-22/Accounts/aaf98f894032b237014047963bb9009d/SubAccounts?sig='+sig.toUpperCase(),
         headers: {
             'Content-Type': 'application/xml;charset=utf-8',
             'Accept': 'application/xml',
