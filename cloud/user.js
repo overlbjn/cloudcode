@@ -41,9 +41,7 @@ AV.Cloud.define('testCloopen', function(request, response)
             'Accept': 'application/xml',
             'Authorization': authorization64
         },
-        body: {
-            "<SubAccount><appId>aaf98f894032b2370140482ac6dc00a8</appId><friendlyName>33dd556@qq.com</friendlyName><accountSid>aaf98f894032b237014047963bb9009d</accountSid></SubAccount>"
-        },
+        body: "<SubAccount><appId>aaf98f894032b2370140482ac6dc00a8</appId><friendlyName>33dd556@qq.com</friendlyName><accountSid>aaf98f894032b237014047963bb9009d</accountSid></SubAccount>",
         success:function(httpResponse) {
             console.log(httpResponse.text);
             response.success(httpResponse.text);
