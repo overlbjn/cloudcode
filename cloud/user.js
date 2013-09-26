@@ -13,7 +13,7 @@ function md5 (text) {
 };
 
 function base64 (text){
-    return new Buffer(text).toString('base64');
+    return new Buffer("text").toString('base64');
 }
 
 AV.Cloud.define('testCloopen', function(request, response)
@@ -29,12 +29,13 @@ AV.Cloud.define('testCloopen', function(request, response)
     var sig = md5(sigstr);
     console.log('sig:' + sig);
     var bodyxml ='<SubAccount><appId>aaf98f894032b2370140482ac6dc00a8</appId><friendlyName>33dd556@qq.com</friendlyName><accountSid>aaf98f894032b237014047963bb9009d</accountSid></SubAccount>';
-    
+    console.log('body:' + bodyxml);
+    console.log('url:https://sandboxapp.cloopen.com:8883/2013-03-22/Accounts/aaf98f894032b237014047963bb9009d/SubAccounts?sig='+sig.toUpperCase());
     // response.success('body:'+bodyxml);
     // response.success('https://sandboxapp.cloopen.com:8883/2013-03-22/Accounts/aaf98f894032b237014047963bb9009d/SubAccounts?sig='+sig.toUpperCase()),
     AV.Cloud.httpRequest({
         method: 'POST',
-        url: 'https://app.cloopen.com:8883/2013-03-22/Accounts/aaf98f894032b237014047963bb9009d/SubAccounts?sig='+sig.toUpperCase(),
+        url: 'https://sandboxapp.cloopen.com:8883/2013-03-22/Accounts/aaf98f894032b237014047963bb9009d/SubAccounts?sig='+sig.toUpperCase(),
         headers: {
             'Content-Type': 'application/xml;charset=utf-8',
             'Accept': 'application/xml',
