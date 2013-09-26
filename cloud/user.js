@@ -19,17 +19,17 @@ function base64 (text){
 AV.Cloud.define('testCloopen', function(request, response)
 {
     var timeStr = moment().format('YYYMMDDHHmmss');
-
+    console.log('timestr:' + timeStr);
     var authorizationStr = 'aaf98f894032b237014047963bb9009d'+':'+timeStr;
-
+    console.log('authorizationStr:' + authorizationStr);
     var authorization64 = base64(authorizationStr);
-    
+    console.log('authorization64:' + authorization64);
     var sigstr = 'aaf98f894032b237014047963bb9009d'+'bbc381b9a024443da462307cec93ce0b'+timeStr;
-
+    console.log('sigstr:' + sigstr);
     var sig = md5(sigstr);
+    console.log('sig:' + sig);
+    var bodyxml ='<SubAccount><appId>aaf98f894032b2370140482ac6dc00a8</appId><friendlyName>33dd556@qq.com</friendlyName><accountSid>aaf98f894032b237014047963bb9009d</accountSid></SubAccount>';
     
-    var bodyxml ='<SubAccount><appId>aaf98f894032b2370140482ac6dc00a8</appId><friendlyName>qq24556@qq.com</friendlyName><accountSid>aaf98f894032b237014047963bb9009d</accountSid></SubAccount>';
-
     // response.success('body:'+bodyxml);
     // response.success('https://sandboxapp.cloopen.com:8883/2013-03-22/Accounts/aaf98f894032b237014047963bb9009d/SubAccounts?sig='+sig.toUpperCase()),
     AV.Cloud.httpRequest({
