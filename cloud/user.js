@@ -30,7 +30,7 @@ AV.Cloud.define('testCloopen', function(request, response)
     
     var bodyxml ='<SubAccount><appId>aaf98f894032b2370140479684b0009f</appId><friendlyName>1232224556@qq.com</friendlyName><accountSid>aaf98f894032b237014047963bb9009d</accountSid></SubAccount>';
 
-    // response.success(sig.toUpperCase());
+    
 
     AV.Cloud.httpRequest({
         method: 'POST',
@@ -41,6 +41,7 @@ AV.Cloud.define('testCloopen', function(request, response)
             'Authorization': authorization64
         },
         body: bodyxml,
+        response.success('body:'+bodyxml+'rul:'+url+'headers:'+headers);
         success:function(httpResponse) {
             response.success(httpResponse.text);
         },
